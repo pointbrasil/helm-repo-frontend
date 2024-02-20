@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  repo-frontend:
+  - apiVersion: v1
+    name: repo-frontend
+    version: 1.0.0
+    description: Application frontend
+    home: https://github.com/budgetsaas/helm-repo-frontend
+    sources:
+    - https://github.com/budget-saas/helm-repo-frontend
+    created: "2024-02-20T00:00:00.000000000Z"
+    urls:
+    - charts/frontend-app-0.1.0.tgz
+generated: "2024-02-20T00:00:00.000000000Z"

@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}
+  namespace: ingress
+spec:
+  replicas: {{ .Values.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}
+    spec:
+      containers:
+        - name: {{ .Release.Name }}
+          image: fernandoa12/{{ .Release.Name }}:{{ .Values.tag }}
+          resources:
+            limits:
+              cpu: "1"
+              memory: "1Gi"
+          ports:
+            - containerPort: {{ .Values.port }}
+          imagePullPolicy: IfNotPresent
+          env:
+          {{- range .Values.environments }}
+            - name: {{ .name }}
+              value: '{{ .value }}'
+          {{- end }}
+      restartPolicy: Always

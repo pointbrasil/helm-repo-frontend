@@ -1,0 +1,7 @@
+service:
+  type: ""
+  namespace: ingress
+ingress:
+  enabled: false
+port: 3000
+replicas: 1
