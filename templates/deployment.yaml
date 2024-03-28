@@ -15,11 +15,7 @@ spec:
     spec:
       containers:
         - name: {{ .Release.Name }}
-          image: fernandoa12/{{ .Release.Name }}:{{ .Values.tag }}
-          resources:
-            limits:
-              cpu: "1"
-              memory: "1Gi"
+          image: integratedarts/{{ .Release.Name }}:{{ .Values.tag }}
           ports:
             - containerPort: {{ .Values.port }}
           imagePullPolicy: IfNotPresent
